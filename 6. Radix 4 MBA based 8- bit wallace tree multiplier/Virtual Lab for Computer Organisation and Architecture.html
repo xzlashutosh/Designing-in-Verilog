@@ -1,0 +1,619 @@
+
+<!-- saved from url=(0050)https://cse.iitkgp.ac.in/~chitta/coldvl/booth.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Virtual Lab for Computer Organisation and Architecture</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<link href="./Virtual Lab for Computer Organisation and Architecture_files/default.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript">
+ var curitem = 0;
+
+   function loadNewPage(idx) {
+      document.getElementById("itembody" + curitem).style.display = "none";
+      document.getElementById("itembody" + idx).style.display = "block";
+      curitem = idx;
+   }
+function showHide(shID) {
+   if (document.getElementById(shID)) {
+      if (document.getElementById(shID+'-show').style.display != 'none') {
+         document.getElementById(shID+'-show').style.display = 'none';
+         document.getElementById(shID).style.display = 'block';
+      }
+      else {
+         document.getElementById(shID+'-show').style.display = 'inline';
+         document.getElementById(shID).style.display = 'none';
+      }
+   }
+}
+</script>
+
+
+</head>
+<body data-gr-c-s-loaded="true">
+<div id="wrapper">
+	<div id="header">
+		<img src="./Virtual Lab for Computer Organisation and Architecture_files/iit1.gif">
+	</div>
+	<div id="pages">
+		<h1>Virtual Lab - IIT Kharagpur</h1>
+		<h2>Logic Design and Computer Organization.</h2>
+		<ul>
+			<li class="active"><a href="javascript:loadNewPage(0);">Theory</a></li>
+			<li><a href="javascript:loadNewPage(5);">Objective</a></li>
+			<li><a href="javascript:loadNewPage(2);">Procedure</a></li>
+			<li><a href="javascript:loadNewPage(6);">Experiment</a></li>
+		<!---	<li><a href="javascript:loadNewPage(30);">Screen shots</a></li>-->
+			<li><a href="javascript:loadNewPage(1);">Quizes</a></li>
+			<li><a href="javascript:loadNewPage(4);">Further Reading</a></li>
+		<!---	<li><a id="page6" href="#" onclick="loadNewPage(5)">Feedback</a></li>-->
+
+		</ul>	
+		
+	</div>
+	<div id="content">
+		<div id="posts">
+		<div id="home"><a href="https://cse.iitkgp.ac.in/~chitta/coldvl/index.html"><img src="./Virtual Lab for Computer Organisation and Architecture_files/home.jpg"></a></div>
+			<!--<div id="post">-->
+				<div id="itembody0" style="display:block">
+					<h2 class="title">Booth's Multiplier :</h2>
+					<p>Booth's multiplication algorithm is an algorithm which multiplies 2 signed integers in 2's complement. The algorithm is depicted in the following figure with a brief description. This approach uses fewer additions and subtractions than more straightforward algorithms.</p>
+					<table><tbody><tr>
+					<td><font size="2">The multiplicand and multiplier are placed in the m and Q registers respectively. A 1 bit register is placed logically to the right of the LSB (least significant bit) Q0 of Q register. This is denoted by Q-1. A and Q-1 are initially set to 0. Control logic checks the two bits Q0 and Q-1. If the twi bits are same (00 or 11) then all of the bits of A, Q, Q-1 are shifted 1 bit to the right. If they are not the same and if the combination is 10 then the multiplicand is subtracted from A and if the combination is 01 then the multiplicand is added with A. In both the cases results are stored in A, and after the addition or subtraction operation, A, Q, Q-1 are right shifted. The shifting is the arithmetic right shift operation where the left most bit namely, A<sub>n-1</sub> is not only shifted into A<sub>n-2</sub> but also remains in A<sub>n-1</sub>. This is to preserve the sign of the number in A and Q. The result of the multiplication will appear in the A and Q.</font></td>
+					<td><img src="./Virtual Lab for Computer Organisation and Architecture_files/flow2.png" width="300"></td>
+					</tr></tbody></table>
+					<h2><strong>Design Issues :</strong></h2>
+					<p>Booth's algorithm can be implemented in many ways. This experiment is designed using a controller and a datapath. The operations on the data in the datapath is controlled by the control signal received from the controller. The datapath contains registers to hold multiplier, multiplicand, intermediate results, data processing units like ALU, adder/subtractor etc., counter and other combinational units. Following is the schemetic diagram of the Booth's multiplier which multiplies two 4-bit numbers in 2's complement of this experiment. Here the adder/subtractor unit is used as data processing unit.M, Q, A are 4-bit and Q-1 is a 1-bit rigister. M holds the multiplicand, Q holds the multiplier, A holds the results of adder/subtractor unit. The counter is a down counter which counts the number of operations needed for the multiplication. The data flow in the data path is controlled by the five control signals generated from the controller. these signals are <i>load</i> (to load data in registers), <i>add</i> (to initiate addition operation), <i>sub</i> (to initiate subtraction operation), <i>shift</i> (to initiate arithmetis right shift operation), <i>dc</i> (this is to decrement counter). The controller generates the control signals according to the input received from the datapath. Here the inputs are the least significant Q0 bit of Q register, Q-1 bit and count bit from the down counter.</p>
+					<p><img src="./Virtual Lab for Computer Organisation and Architecture_files/sch.png" width="400"></p>
+					</div>
+					
+					<div id="itembody1" style="display:none">
+					<h2 class="title">Booth's Multiplier :</h2>
+<p></p><h2>Basic stage</h2><p></p>
+<p><strong>Multiple choice questions:</strong></p>
+<from><ul>
+<li>For a 4 bit number, what is the maximum positive integer which can be expressed in 2's complement?</li><p>
+<input type="radio" name="q3" value="A" onclick="alert(&quot;Wrong!&quot;)">8</p><p>
+<input type="radio" name="q3" value="B" onclick="alert(&quot;Correct!&quot;)">7</p><p>
+<input type="radio" name="q3" value="C" onclick="alert(&quot;Wrong!&quot;)">16</p><p>
+<input type="radio" name="q3" value="D" onclick="alert(&quot;Wrong!&quot;)">15</p><p>
+</p><hr><p>
+</p><li>For a 4 bit number, what is the minimum negative integer which can be expressed in 2's complement?</li><p>
+<input type="radio" name="q4" value="A" onclick="alert(&quot;Wrong!&quot;)">-7</p><p>
+<input type="radio" name="q4" value="B" onclick="alert(&quot;Wrong!&quot;)">-15</p><p>
+<input type="radio" name="q4" value="C" onclick="alert(&quot;Wrong!&quot;)">-16</p><p>
+<input type="radio" name="q4" value="D" onclick="alert(&quot;Correct!&quot;)">-8</p><p>
+</p><hr><p>
+</p><li>In which notation, 0 has two representations?</li><p>
+<input type="radio" name="q5" value="A" onclick="alert(&quot;Correct!&quot;)">Sign magnitude</p><p>
+<input type="radio" name="q5" value="B" onclick="alert(&quot;Wrong!&quot;)">1's complement</p><p>
+<input type="radio" name="q5" value="C" onclick="alert(&quot;Wrong!&quot;)">2's complement</p><p>
+<input type="radio" name="q5" value="D" onclick="alert(&quot;Wrong!&quot;)">None of these</p><p>
+</p><hr><p>
+</p><li>Sign extension is a step in</li><p>
+<input type="radio" name="q5" value="A" onclick="alert(&quot;Wrong!&quot;)">Arithmetic left shift</p><p>
+<input type="radio" name="q5" value="B" onclick="alert(&quot;Wrong!&quot;)">Signed 16 bit integer addition</p><p>
+<input type="radio" name="q5" value="C" onclick="alert(&quot;Correct!&quot;)">Floating point multiplication</p><p>
+<input type="radio" name="q5" value="D" onclick="alert(&quot;Wrong!&quot;)">None of these</p><p>
+</p><hr><p>
+</p></ul>					
+<p><strong>Subjective questions:</strong></p>
+<ul>
+<li>How to represent a negative integer in 2's complement notation?
+</li><li>What are the different approaches for multiplication?
+</li><li>What is the sign extention rule for 2's complement numbers?
+</li><li>Is there any difference between the 2's complement representation of a numeber and the 2's complement of a number? If yes then explain.
+
+</li></ul>
+<p></p><h2>Advanced stage</h2><p></p>
+<p><strong>Multiple choice questions:</strong></p>
+<from><ul>
+<li>Which of the following gives best performance with Booth's algorithm?</li><p>
+<input type="radio" name="q1" value="A" onclick="alert(&quot;Wrong!&quot;)">0000 1111</p><p>
+<input type="radio" name="q1" value="B" onclick="alert(&quot;Wrong!&quot;)">1111 0000</p><p>
+<input type="radio" name="q1" value="C" onclick="alert(&quot;Correct!&quot;)">1111 1111</p><p>
+<input type="radio" name="q1" value="D" onclick="alert(&quot;Wrong!&quot;)">1010 1010</p><p>
+</p><hr><p>
+</p><li>Booth's algorithm is faster du to less number of addition and subtraction and can handle signed numbers</li><p>
+<input type="radio" name="q2" value="C" onclick="alert(&quot;Correct!&quot;)">True</p><p>
+<input type="radio" name="q2" value="D" onclick="alert(&quot;Wrong!&quot;)">False</p><p>
+</p><hr><p>
+
+</p><li>Booth's algorithm increases space in case of fixed point signed multiplication</li><p>
+<input type="radio" name="q6" value="A" onclick="alert(&quot;Wrong!&quot;)">True</p><p>
+<input type="radio" name="q6" value="B" onclick="alert(&quot;Correct!&quot;)">False</p><p>
+</p><hr><p <li="">2's complement of 7 is?</p><p>
+<input type="radio" name="q7" value="A" onclick="alert(&quot;Wrong!&quot;)">11100</p><p>
+<input type="radio" name="q7" value="B" onclick="alert(&quot;Correct!&quot;)">11001</p><p>
+<input type="radio" name="q7" value="C" onclick="alert(&quot;Wrong!&quot;)">10111</p><p>
+<input type="radio" name="q7" value="D" onclick="alert(&quot;Wrong!&quot;)">10100</p><p>
+</p><hr><p>
+</p></ul>					
+<p><strong>Subjective questions:</strong></p>
+					<ul>
+						<li>What is the difference between combionational multiplier and Booth's multiplier?
+						</li><li>Why Booth's multiplier is faster than other approaches like shift and add multiplier?
+						</li><li>How Booth's multiplier handles the signed integer while others cannot?
+						</li><li>Prove that the multiplication of two m-bit numbers in base R gives a product of no more than 2m digits.
+					</li></ul>
+				</from></from></div>
+
+					<div id="itembody2" style="display:none">
+						<h2 class="title">Booth's Multiplier :</h2>
+						<b>Procedure to perform the experiment on the given working module which multiplies two 4-bit numbers</b>
+					<ol>
+					<li>Start the simulator as directed.This simulator supports 5-valued logic.
+					</li><li>To perform the experiment on the given modules, we need the datapath specified for booth's multiplication, a controller with a specified state chart, a clock input, bit switch (to give input, which will toggle its value with a double click), bit displays (for seeing output), wires.
+					</li><li>Instantiating the controller: A control unit can be seen as a finite state machine, so its behavior can be represented in a state table. The controller of the simulator accepts the Moore type state chart and must contain an end state. State names will automatically be generated in the form of S<sub<n< sub="">. In the left pane of the simulator, click on the ASM chart button in the controller subsection. Give the required informations in the appeared form as follows:
+						<ul><li>Number of states: 7
+						</li><li>Number of inputs: 3
+						</li><li>Number of outputs: 5</li></ul> The controller will generate 5 output control signals. After entering these informations, the second form will appear where you can set the names of the inputs and outputs. Here inputs are the Q0, Q-1, count. Outputs control signals are load, add, sub, shift, dc. The order of given input/outputs are maintained while creating terminals of the controller. for example, the first output signal will appear in the left most output terminal (lower terminals), second output will appear in the second left most bit and so on. In case of input terminals, the left most bit is for clock input, so the first input appears in the second terminal, and then the order is maintained. Then the third form will appear where you actually specify the state chart i.e. state, outputs of that state and transition conditions . The fields of the chart will be generated dynamically according to previously given information on states, inputs and outputs.After entering the following state chart, click on the controller component in the palette of the simulator then click on the position of the design editor where you want to put the component (no drag and drop, simple click will serve the purpose). 
+ <p><img src="./Virtual Lab for Computer Organisation and Architecture_files/stateTable.png" width="400"></p>
+					</sub<n<></li><li>Instantiate the Booth's multiplier datapath from the sequential ckt drawer in the palette (by clicking as mentioned previously).
+					</li><li>The pin configuration of the component is shown whenever the mouse is hovered on any canned component of the palette or pressing the <i>show pin configuration</i> button on the toolbar will show it constantly in the left pane. Pin numbering starts from 1 and from the bottom left corner(indicating with the circle) and increases anticlockwise.
+					</li><li>Pin configuration of the datapath module: 
+						<ul><li>M : Multiplicand (4 bit), Q : Multiplier (4 bit)
+						</li><li>Initialization : Inl:1, preset:1, set M, Q, start clock
+						</li><li>Starting multiplication: Inl:0, preset:0, start clock
+						</li><li>Result: FQ0 to FA3, at end state (here it is S6). These are the content of A(4bit) and Q(4bit) register, total 8 bit (FQ0 is LSB, FA3 is MSB) 
+						</li><li>I/P:
+							<ul><li>Clk:32, Inl:31, preset:30
+							</li><li>Control pins: load:29, add:28, sub:27, shift:26, dc:25
+							</li><li>Multiplicand: M3 : 24, M2 : 23, M1 : 22, M0 : 21
+							</li><li>Multiplier: Q3 : 20, Q2 : 19, Q1 : 18, Q0 : 17</li></ul>
+						</li><li>O/P: FQ-1 is output of Q-1 bit register, similarly FQ0 to FQ3 are for Q register and FA0 to FA3 are for A register.
+							<ul><li>Datapath to controller input: Count, clkToController, FQ-1, FQ0
+							</li><li>Count : 16, clkToController : 15, FQ-1 : 14, FQ0 : 13
+							</li><li>FQ1 : 12, FQ2 : 11, FQ3 : 10
+							</li><li>FA0 : 9, FA1 : 8, FA2 : 7, FA3 : 6</li></ul>
+						</li></ul>
+					</li><li>To connect any two components select the Connection menu of Palette, and then click on the Source terminal and click on the target terminal. According to the following diagram connect all the components. Connect the controller outputs to the specified control input terminals of the datapath, specified datapath outputs to the inputs of the controller, the clock input, Bit switches with the inputs and Bit displays component with the outputs (from Display and Input drawer of the pallet,if it is not seen scroll down in the drawer). After the connection is over click the selection tool in the pallete.</li>
+					<p><img src="./Virtual Lab for Computer Organisation and Architecture_files/exp.png" width="400"></p>
+					<li>At first initialize the multiplier by giving the specified inputs specified earlier, this will load the multiplier and multiplicand, then start the multiplication operation by giving the specified inputs specified earlier. At the end state (S6), the multiplication result will be seen through ports FQ0 to FA3 (FQ0 is LSB, FA3 is MSB). The current state of the controller is shown in the left pane as it transits from one state to another. The controller can be reset by clicking the <i>reset controller</i> button in the top toolbar, to start with a new input.				
+					</li></ol>
+					
+					<p><a href="javascript:loadNewPage(300);">Circuit Diagram</a></p>	
+						<h2><strong>Components :</strong></h2>
+						<p>To build the 4 bit Booth's multiplier, we need :</p>
+						<ol>
+							<li>Controller
+							</li><li>Rigisters, Adder/subtractor unit, multiplexer, down counter, logic gates to construct the datapath
+							</li><li>Inputs
+							</li><li>Outputs
+							</li><li>Wires to connect</li>
+						</ol>
+					</div>
+
+					<div id="itembody5" style="display:none">
+					<h2>Objective of 4 bit Booth's multiplier:</h2>
+					
+<ol>
+<li>Understanding behaviour of Booth's multiplication algorithm from working module and the module designed by the student as part of the experiment
+</li><li>Designing Booth's multiplier with a controller and a datapath. This will also help in the learning of control unit design as a finite state machine
+</li><li>Understanding the advantages of Booth's multiplier
+	<ul><li>It can handle signed integers in 2's complement notion
+	</li><li>It decreases the number of addition and subtraction
+	</li><li>It requires less hardware than combinational multiplier
+	</li><li>It is faster than straightforward sequential multiplier
+	</li></ul>
+</li></ol>
+<h4>Examining behaviour of 4 bit Booth's multiplier for the working module and module designed by the student as part of the experiment (refer to the circuit diagram):</h4>
+<p>Set M as 0111 which is 7 and Q as 0101 which is 5. Now start the multiplication operation and observe the results including the intermediate results. The Booth's algorithm on those inputs works as the following diagram, so the circuit must behave according to it. </p>
+					<p><img src="./Virtual Lab for Computer Organisation and Architecture_files/eg.png" width="400"></p>
+
+<p><strong>Recommended learning activities for the experiment:</strong> Leaning activities are designed in two stages, a basic stage and an advanced stage. Accomplishment of each stage can be self-evaluated through the given set of quiz questions consisting of multiple type and subjective type questions. In the basic stage, it is recommended to perform the experiment firstly, on the given encapsulated working module, secondly, on the module designed by the student, having gone through the theory, objective and procuder. 
+By performing the experiment on the working module, students can only observe the input-output behavior.
+Where as, performing experiments on the designed module, students can do circuit analysis, error analysis in addition with the input-output behavior.
+It is recommended to perform the experiments following the given guideline to check behavior and test plans along with their own circuit analysis. Then students are recommended to move on to the advanced stage. The advanced stage includes the accomplishment of the given assignments which will provide deeper understanding of the topic with innovative circuit design experience. At any time, students can mature their knowledge base by further reading the references provided for the experiment.
+</p>				
+					<!--<h2><strong>Procedure to perform the experiment on the circuit designed by the user:</strong></h2>
+					<p>After performing the experimenet on working module, user is recommended to construct the circuit and then watch the behavior of the circuit. </p>-->
+					<li>color configuration of wire for 5 valued logic supported by the simulator:
+			<ul>
+				<li>if value is UNKNOWN, wire color= maroon
+				</li><li>if value is TRUE, wire color= blue
+				</li><li>if value is FALSE, wire color= black
+				</li><li>if value is HI IMPEDENCE, wire color= green
+				</li><li>if value is INVALID, wire color= orange
+			</li></ul>			
+				<h2><strong>Test plan:</strong></h2>
+					<p></p><ol>
+						<li>Compute the multiplication of 0101 which is 5 and 1010 which is -6 with the Booth's multiplication
+						</li><li>Test the multiplication of two negative numbers and with two positive numbers
+					</li></ol><p></p>
+<h2><strong>Assignment Statements :</strong></h2>
+					<p></p><ol>
+						<li>Design a 4-bit Booth's multiplier circuit with a different controller behaving differently other than specified in this experiment
+						</li><li>Design a 4-bit shift and add multiplier
+						</li><li>Design a 8-bit shift and add multiplier
+						</li><li>Design a 6-bit Booth's multiplier circuit
+					</li></ol><p></p>
+				</li></div>
+
+					<div id="itembody6" style="display:none">
+					<h2 class="title">Booth's Multiplier :</h2>
+						General guideline to use the simulator for performing the experiment:
+					<ul>
+					<li>Start the simulator as directed. For more detail please refer to the manual for using the simulator
+					</li><li>The simulator supports 5-valued logic
+					</li><li>To add the logic components to the editor or canvas (where you build the circuit) select any component and click on the position of the canvas where you want to add the component
+					</li><li>The pin configuration is shown when you select the component and press the 'show pinconfig' button in the top toolbar or whenever the mouse is hovered on any canned component of palette
+					</li><li>To connect any two components select the connection tool of palette, and then click on the source terminal and then click on the the target terminal. By pressing the 'change connection type' in the toolbar the type of the connection can be toggled between shortest path type or manhattan type. Default connection type is mahattan.
+					</li><li>To move any component select the component using the selection tool and drag the component to the desired position
+					</li><li>To give a toggle input to the circuit, use 'Bit Switch' which will toggle its value with a double click
+					</li><li>Use 'Bit Display' component to see any single bit value. 'Digital Display' will show the output in digital format
+					</li><li>undo/redo, delete, zoom in/zoom out, and other functionalities have been given in the top toolbar for ease of circuit building
+					</li><li>Use start/stop clock pulse to start or stop the clock input of the circuit
+					</li><li>Use 'plot graph' button to see input-output wave forms
+					</li><li>Users can save their circuits with .logic extension and reuse them
+					</li><li><strong>After building the circuit press the simulate button in the top toolbar to get the output</strong>
+					</li><li><strong>If the circuit contains a clock pulse input, then the 'start clock' button will start the simulation of the whole circuit. Then there is no need to again press the 'simulate' button</strong>
+					</li><li>If you are using linux platform then click on 'Linux(32 bit)' or if you are using then click on 'Windows(32 bit)'</li>
+					
+					</ul>
+					<!--<h2>Currently the simulator can be run only under linux platform.</h2>-->
+					<p></p>
+					<p><a href="javascript:loadNewPage(50);">Linux(32 bit)</a></p>
+					<p><a href="javascript:loadNewPage(51);">Windows(32 bit)</a></p>
+					</div>
+
+					<div id="itembody300" style="display:none">
+					
+					Circuit diagram of 4 bit Booth's Multiplier:<br><br>
+					<p><img src="./Virtual Lab for Computer Organisation and Architecture_files/bckt1.png" width="450"></p><br>
+					<p>The combinational logic between the control signals of the controller and the control pins of the registers are to satisfy different operational conditions of individual components. In this design, the controller controls only the multiplication process, the initialization has been seperated, so a multiplexer is used to the clock port of the controller to deactivate ot during initialization. Except M, A, Q, Q-1 registers one more 4-bit register has been used which works as temporary storage. With the preset, the down counter is set to all one which is then decremented. The controller state chart is designed in such a way that at each state it activates only one control signal. The controller of this circuit behaves according to the state chart shown in the procedure section of this experiment. A and Q will hold the final multiplication result. </p>
+					<p><a href="javascript:loadNewPage(2);">Back</a></p>
+					</div>
+
+					<div id="itembody301" style="display:none">
+					<br><br>
+					Circuit diagram of 4 bit ALU:<br><br>
+					<!--<p><img src="images/alu4Ckt.png" width=540></img></p><br></br>-->
+					<p><img src="./Virtual Lab for Computer Organisation and Architecture_files/aluckt.png" width="500"></p><br><br>
+					Screenshot of Design of 4 bit ALU:<br><br>
+					<p><img src="./Virtual Lab for Computer Organisation and Architecture_files/alu4bit.png" width="540"></p>
+					<p><a href="javascript:loadNewPage(51);">Back</a></p>
+					</div>
+						
+					<div id="itembody50" style="display:none">
+						
+					<p></p>	
+					<!--<table><th>Wait for the Simulator to start.</th>
+						<APPLET ALIGN="CENTER" CODE="org.eclipse.swt.e4.examples.gef.AppletFrame" archive="eventDriven.jar,com.ibm.icu_4.2.1.v20100412.jar,org.eclipse.swt.gtk.linux.x86_3.6.0.v3650b.jar,org.eclipse.swt.gtk.linux.x86_3.6.1.v3655c.jar," WIDTH="5" HEIGHT="5">
+						</APPLET></table>
+					<p><b>Instructions if any Applet related problems</b><br>
+<pre>
+mydomain:~$ cd /usr/lib/firefox-3.6.18/plugins 
+mydomain:/usr/lib/firefox-3.6.18/plugins$  sudo ln -s /usr/lib/jvm/java-6-sun-1.6.0.26/jre/lib/i386/libnpjp2.so .
+[sudo] password for coa-vls: 
+mydomain:/usr/lib/firefox-3.6.18/plugins$ ls -l
+total 180
+lrwxrwxrwx 1 root root     57 2011-08-09 16:00 libnpjp2.so -> /usr/lib/jvm/java-6-sun-1.6.0.26/jre/lib/i386/libnpjp2.so
+-rw-r--r-- 1 root root 179552 2011-07-15 14:21 nppdf.so
+mydomain:/usr/lib/firefox-3.6.18/plugins$ 
+</pre>
+Restart Firefox</p>-->
+				<p><strong><a href="https://cse.iitkgp.ac.in/~chitta/coldvl/coaSimulator.jar" target="_blank"> Click here to download the older version of simulator</a></strong></p>
+<p><strong><a href="https://cse.iitkgp.ac.in/~chitta/coldvl/coaSimulatorNew.jar" target="_blank"> Click here to download the new version of simulator</a></strong></p>
+				<p>OR</p>
+				<p><strong><a href="https://cse.iitkgp.ac.in/~chitta/coldvl/simulator.jnlp">Launch the older version of Simulator</a></strong></p>
+				<p><strong><a href="https://cse.iitkgp.ac.in/~chitta/coldvl/simulatorNew.jnlp">Launch the new version of Simulator</a></strong></p>
+					<p>Once the simulator is downloaded, open the command prompt, then go to the directory where you have saved it using <strong>cd</strong> command and then give the following command to run the simulator:<br>
+					<strong>java -jar coaSimulator.jar</strong></p>
+					</div>
+					<div id="itembody51" style="display:none">
+					
+					<!--<table >
+					<th>Wait for the Simulator to start.</th>				
+					<tr><td align= "center">
+					<APPLET ALIGN="CENTER" CODE="org.eclipse.swt.e4.examples.gef.AppletFrame" 			archive="eventDriven.jar,com.ibm.icu_4.2.1.v20100412.jar,org.eclipse.swt.win32.win32.x86_3.6.0.v3650b.jar,org.eclipse.swt_3.6.0.v3650b.jar" WIDTH="80" HEIGHT="50">
+					</APPLET>
+					</td></tr>
+					</table>
+					<p><a href="eventDriven1.jar" target="_blank" >Or you can click here to download the simulator<a>-->
+<p><strong><a href="https://cse.iitkgp.ac.in/~chitta/coldvl/Simulator.jar" target="_blank">Click here to download the older version of simulator</a></strong></p>
+<p><strong><a href="https://cse.iitkgp.ac.in/~chitta/coldvl/SimulatorNew.jar" target="_blank">Click here to download the new version of simulator</a></strong></p>
+					<p>OR</p>
+					<p><strong><a href="https://cse.iitkgp.ac.in/~chitta/coldvl/win.jnlp">Launch the older version of Simulator</a></strong></p>
+					<p><strong><a href="https://cse.iitkgp.ac.in/~chitta/coldvl/winNew.jnlp">Launch the new version of Simulator</a></strong></p>
+					<p>Once the simulator is downloaded, open the command prompt, then go to the directory where you have saved it using <strong>cd</strong> command and then give the following command to run the simulator:<br>
+					<strong>java -jar Simulator.jar</strong></p>
+					</div>
+					<div id="itembody4" style="display:none">
+						<h2 class="title">Booth's Multiplier :</h2>
+						<h2><strong>References :</strong></h2>
+						<p>Books:</p>
+						<ol>
+						<li>Computer Architecture and Organization - John P. Hayes
+						</li><li>Computer Organization and Architecture - William Stallings
+						 </li><li>Digital Logic and Computer Design - M. Morris Mano. Pearson Education - Prentice Hall. </li>
+						 <li>Digital Principles Foundation of Circuit Design and Application - Arun Kumar Singh. New Age Publishers.</li>
+						 <li>The Art of Electronics - Paul Horowitz and Winfield Hill (1989). Cambridge University Press</li>
+						 <li>Modern Dictionary of Electronics - Rudolf F. Graf (1999). Newnes</li>
+
+						</ol>
+						<p>Web Sites:</p>
+						<ul>
+							 
+					 <li><a href="http://nptel.iitm.ac.in/courses.php?disciplineId=106" target="_blank">NPTEL (e-learning courses from IITs and IISC)</a></li>	 
+						</ul>
+					</div>
+
+					<div id="itembody11" style="display:none">
+						<p><strong>Virtual Lab</strong> is an initiative of <strong><a id="ref" href="http://www.education.nic.in/">Ministry of Human Resource and Development(MHRD)</a></strong> under
+						National Mission of Education through ICT to provide an interactive environment over the internet for creating and conducting different laboratory experiments by sharing the costly 
+						equipments and the resources.</p>
+						<p>For more information about the Virtual Lab,please visit <a href="http://www.vlab.co.in/">http://www.vlab.co.in/</a></p>
+						
+						<h3>Developers of Logic Design and Computer Organization Virtual
+Lab</h3>
+						<ul><p></p><li><strong>Dr. Chittaranjan Mandal</strong></li>
+Professor,  Computer Science &amp; Engineering<br>
+Professor,  Information Technology<br>
+IIT Kharagpur<p></p>
+
+
+<p></p><li><strong>Gargi Roy</strong></li>
+Senior Project Assistant<p></p>
+
+<p></p><li><strong>Devleena Ghosh</strong></li>
+<p></p>
+
+</ul>
+					</div>
+
+					<div id="itembody14" style="display:none">
+						<h2>Target Audience:</h2>
+						<p>Under graduate students.</p>
+					</div>
+
+					<div id="itembody15" style="display:none">
+						<h2>Courses Aligned With:</h2>
+						<p>Computer organization and artitecture.</p>
+					</div>
+
+					<div id="itembody16" style="display:none">
+						<h2>Pre-requisite Softwares:</h2>
+						<ul>
+							<li>32 bit java runtime environment and java 1.6 or above
+							</li><li>Recommended browser: mozilla firefox, google chrome
+						</li></ul>
+					</div>
+
+					<div id="itembody17" style="display:none">
+						<h2>Objectives:</h2>
+						<p>The Objective is to Expose the students to the various key aspects of Computer Organisation by enabling them to perform FPGA based prototyping of experiments with support of a virtual environment. The primary need
+for virtualisation here is multifold.</p>
+					<ol>
+						<li>Digital Logic and Computer Organisation are core courses in most of the Undergraduate Curricula of the entire Electrical Sciences Discipline(Computer Science / Engg., Electronics, Electrical) etc. </li>
+						<li>Many colleges/institutes cannot procure sufficient number of FPGA boards for their students.</li>
+						<li>Even when such FPGA boards are available, making them available round the clock is difficult. </li>
+						<li>Expert help is required to effectively use these FPGA  boards and such help can be easily channeled through a virtual environment.</li>
+						<li>Helps to standardize the set of Experiments to a large extent.</li>
+						</ol>
+					</div>
+
+					<div id="itembody18" style="display:none">
+						<h2>Feedback:</h2>
+						<p>To give your feedback please visit the following link-</p>
+						<p><a href="http://virtual-labs.ac.in/feedback/" target="_blank">Sponsered by MHRD
+(NME-ICT) </a><a>.</a></p><a>
+					</a></div><a>
+
+					<div id="itembody13" style="display:none">
+						<h2>Contact Information:</h2>
+						<!--  <div id="home"><a href="index.html"><img src= "images/home.jpg"></a></div>-->
+						<strong>Mailing Address and Contact Information:</strong>
+						<p>Department of Computer Science &amp; Engineering, IIT Kharagpur</p>
+						<p>Office : +91-3222-2882255</p>
+						<p><strong>Postal Address:</strong></p>
+						<p>Indian Institute of Technology Kharagpur, Kharagpur - 721302, INDIA
+						Telephone Number +91-3222-255221 | FAX : +91-3222-255303</p>
+					</div>
+
+					</a><div id="itembody144" style="display:none"><a>
+						</a><h2><a>Tutorial on UI for lab:</a><a name="top"></a></h2>
+						<h3><u>Introduction:</u></h3>
+						<ol><li>The simulator contains a pallete on the right hand side. This pallete contains all the components and tools . Tools are used to act up on the components. Different tools:
+<ul><li><strong>Selection tool-</strong> used for selecting components</li>
+<li><strong>Marquee tool-</strong> used for selecting many components at a time by draggiung the mouse in the design area(editor).</li>
+<li><strong>Connection tool-</strong> used for connecting components</li></ul>
+					</li><li>Components have been catagorized according to their functionality and put into different drawers in the pallete. The area under every drawer is scrallable, if you are unable to see all the components in a particular drawer just click on the area and scroll. Different drawers:</li>
+<ul><li><strong>Circuits-</strong> contains 8 and 16 terminal circuits and flow container which can hold other circuit components.</li>
+<li><strong>Logic gates-</strong> contains all kinds of basic logic gates.</li>
+<li><strong>Display and inputs-</strong> contains all kinds of component needed to give input to the circuit and displaying outputs of the circuit.</li>
+<li><strong>Adders-</strong> contains different types of adder circuits.</li>
+<li><strong>Sequential ckt-</strong> contains basic flipflops for designing sequential circuits.</li>
+<li><strong>Other Components-</strong> contains different kinds of components like decoders, multiplexers, arithmetic logic units(ALU), memory elements(RAM cell) required to design combinational circuits.</li>
+</ul>
+					<li>To add the components to the editor select any component(first click on the selection tool then click on the desired compoent) then finally click on the position of the editor window where you want to add the component.</li>
+					<li>The pin configuration of a component is shown whenever the mouse is hovered on any canned component of the palette. Pin numbering starts from 1 and from the bottom left corner(indicating with the circle) and increases anticlockwise.</li>
+					<li>To connect any two components select the Connection tool in the palette, and then click on the Source terminal and click on the target terminal(no drag and drop, simple click will serve the purpose). After the connection is over click the selection tool in the pallete.</li>
+					<li>To move any components select the Selection Mode and drag the component after selecting it.</li>
+					<li>If needed select any component in the editor while designing your circuit and use Undo, Redo, Delete,Zoom in, Zoom out buttons to get corresponding functionalities. Open and Save options are under development.</li>
+					<li>As the automated clock is under development and the simulator is under modification for sequencial circuits, for the time being please use individual clock(Bit switch which toggle its value with a double click) for each flipflop.</li>
+					<li><strong>The simulator is currently under modification for sequential circuits, now it is working properly for combinational circuits but may not give proper output for sequential circuits.</strong></li>
+</ol>
+					<h3><u>Description of Components:</u></h3>
+					<b>General components:</b>
+						<ol><li><strong>Digital display:</strong> it can be used to give input and as well as to see the output in the decimal format, its right most terminal is the LSB(least significant bit) and the left most terminal is the MSB(most significant bit), in the editor after selecting a particular digital display you can use 'Increment LED' and 'Decrement LED' buttons in the top left corner of the simulator to increment and decrement its value respectively. </li>
+							<li><strong>Bit display:</strong> it displays a single bit value.</li>
+							<li><strong>V+:</strong> it gives 1 as input.</li>
+							<li><strong>Ground:</strong> it gives 0 as input.</li>
+							<li><strong>Bit switch:</strong> it gives 1/0 input, it toggels its value with a double click.</li></ol>
+						
+
+					<!--<li><a href="javascript:loadNewPage(145);">Specific components:</a></li>-->
+					<b><a href="https://cse.iitkgp.ac.in/~chitta/coldvl/booth.html#" id="example-show" class="showLink" onclick="showHide(&#39;example&#39;);return false;">Specific components:</a></b>
+							
+						<div id="example" class="more">
+							<p><strong>Specific components:</strong></p>
+							<p>Pin numbering starts from 1 and from the bottom left corner(indicating with the circle) and increases anticlockwise. Pin configurations of all the components-</p>
+
+							<li><b>Adder drawer:</b></li>
+							<ol><li><strong>Half adder:</strong> <u>i/p:</u> 5,8  &nbsp;&nbsp;&nbsp;<u>o/p:</u> sum=4, carry=1</li>
+							<li><strong>Full adder:</strong> <u>i/p:</u> 5,6,8  &nbsp;&nbsp;&nbsp;<u>o/p:</u> sum=4, carry=1</li>
+							<li><strong>RCA 4 bit:</strong> (4 bit ripple carry adder) <u>i/p:</u> &nbsp;&nbsp;&nbsp;A0=13,A1=14,A2=15,A3=16; &nbsp;&nbsp;&nbsp;B0=17,B1=18,B2=19,B3=20; C0=21   &nbsp;&nbsp;&nbsp;<u>o/p:</u> S0=12,S1=11,S2=10,S3=9,Cout=8</li>
+							<li><strong>Wallace tree adder:</strong> (adds 3 4-bit numbers) <u>i/p:</u>&nbsp;&nbsp;&nbsp;A0=13,A1=14,A2=15,A3=16; &nbsp;&nbsp;&nbsp;B0=17,B1=18,B2=19,B3=20; &nbsp;&nbsp;&nbsp;C0=21,C1=22,C2=23,C3=24   &nbsp;&nbsp;&nbsp;<u>o/p:</u> S0=12,S1=11,S2=10,S3=9,Cout=8</li></ol>
+
+							<li><b>Sequencial ckt drawer:</b></li>
+							<ol><li><strong>RS flipflop:</strong> <u>i/p:</u> R=5, S=8, Clk=7   &nbsp;&nbsp;&nbsp;<u>o/p:</u> Q=4, Q'=1</li>
+							<li><strong>D flipflop:</strong> <u>i/p:</u> D=5, Clk=8   &nbsp;&nbsp;&nbsp;<u>o/p:</u> Q=4, Q'=1</li>
+							<li><strong>T flipflop:</strong> <u>i/p:</u> T=8, Clk=7   &nbsp;&nbsp;&nbsp;<u>o/p:</u> Q=4, Q'=1</li>
+							<li><strong>JK flipflop:</strong> <u>i/p:</u> J=5, K=8, Clk=7   &nbsp;&nbsp;&nbsp;<u>o/p:</u> Q=4, Q'=1</li></ol>
+
+							<li><b>Other components drawer:</b></li>
+							<ol><li><strong>2:4 Decoder:</strong> <u>i/p:</u> A0=5,A1=7   &nbsp;&nbsp;&nbsp;<u>o/p:</u> D0=4,D1=3,D2=2,d3=1</li>
+							<li><strong>2:4 Decoder with enable:</strong> <u>i/p:</u> A=6,B=5,   &nbsp;&nbsp;&nbsp;<u>Enable</u>=8   &nbsp;&nbsp;&nbsp;<u>o/p:</u> D0=4,D1=3,D2=2,d3=1</li>
+							<li><strong>4:1 Mux:</strong> <u>i/p:</u> I0=9,I1=10,I2=11,I3=12,S0=13,S1=14   &nbsp;&nbsp;&nbsp;<u>o/p:</u> F=8</li>
+							<li><strong>Combinational Multiplier:</strong> <u>i/p:</u> <u>multiplicand:</u> A0=13,A1=14,A2=15,A3=16   &nbsp;&nbsp;&nbsp;<u>Multiplier:</u> B0=9,B1=10,B2=11,B3=12   &nbsp;&nbsp;&nbsp;<u>o/p:</u> S0=8,S1=7,S2=6,S3=5,S4=4,S5=3,S6=2,S7=1</li>
+							<li><strong>ALU 1 bit:</strong> <u>i/p:</u> A0=9, B0=10, C0=21 S0=12,S1=13   &nbsp;&nbsp;&nbsp;<u>o/p:</u> F=8, Cout=7</li>
+							<li><strong>4 bit ALU:</strong> <u>i/p:</u> A0=13,A1=14,A2=15,A3=16; &nbsp;&nbsp;&nbsp;B0=17,B1=18,B2=19,B3=20; C0=21;S0=22,S1=23   &nbsp;&nbsp;&nbsp;<u>o/p:</u> F0=12,F1=11,F2=10,F3=9,Cout=8</li>
+							<li><strong>16 bit ALU:</strong> <u>i/p:</u> A1=13,A2=15; B1=14,B2=16; Cin=9,S0=12,S1=11,S2=10   &nbsp;&nbsp;&nbsp;<u>o/p:</u> Cout=6,F2=7,F1=8</li>
+							<li><strong>RAM Cell:</strong> <u>i/p</u>=5,   &nbsp;&nbsp;&nbsp;<u>select</u>=8,   &nbsp;&nbsp;&nbsp;<u>R/W'</u>=6,   &nbsp;&nbsp;&nbsp;<u>o/p</u>=4,   &nbsp;&nbsp;&nbsp; <u>R/W'</u>=1 for read operation,   &nbsp;&nbsp;&nbsp;<u>R/W'</u>=0 for write operation</li>
+							<li><strong>IC Memory:</strong> <u>R/W'</u>=16   &nbsp;&nbsp;&nbsp;<u>Memory Enable</u>=15,   &nbsp;&nbsp;&nbsp;<u>Address i/p</u>=14,13     &nbsp;&nbsp;&nbsp;<u>Data i/p</u>=12,11,10   &nbsp;&nbsp;&nbsp;<u>Data o/p</u>=6,7,8   &nbsp;&nbsp;&nbsp;<u>R/W'</u>=1 for read operation,   &nbsp;&nbsp;&nbsp;<u>R/W'</u>=0 for write operation</li>
+							<li><strong>Direct Mapped Cache:</strong></li>
+						<ul>
+						<li>pin-32= S(selects whether user wants to perform cache write or cache mapping)</li>
+						<li>pin-31= R/W'A(selects whether user wants to input the address or cache mapping)</li>
+						<li>pin-30=A3, pin-29=A2, pin-28=A1, pin-27=A0 (thise 4 pins are used to give address input). A3 is the most significant bit and A0 is the least significant bit. A3 and A2 will be compared with the tag. A1 and A0 will select the corrsponding set.</li>
+						<li>pin-26= R/W'D(selects whether user wants to input in the set of cache or cache mapping)</li>
+						<li>pin-25= M1, pin-24=M0 (M1 is the most significant bit and M0 is the least significant bit). thiese two bits are used for cache writhe purpose, it selects the particular set of which user wants to give inputs to the valid bit, tag bits and data bits.</li>
+						<li>pin-23= Den(this is an enable input which has to set for any write purpose in the cache).</li>
+						<li>pin-21= valid bit</li>
+						<li>pin-20= T1, pin-19=T0 (T1 is the most significant bit and T0 is the least significant bit). These are tag bits.</li>
+						<li>pin-18= D1, pin-17=D0 (D1 is the most significant bit and D0 is the least significant bit). These are data bits.</li>
+						<li>pin-14= Hit/Miss bit(if it gives 1 then hit otherwise miss)</li>
+						<li>pin-15= F1, pin-16=F0 (F1 is the most significant bit and F0 is the least significant bit). These are output data bits and will be given only when there is a hit.</li>			
+						
+						<li><strong>Essential pin configurations for writing in cache: S=1, R/W'A=0, R/W'D=0, Den= 1</strong></li>
+						<li><strong>Essential pin configurations for cache mapping: S=0, R/W'A=1, R/W'D=1, Den= 0</strong></li></ul>
+</ol>
+
+							<p><a href="https://cse.iitkgp.ac.in/~chitta/coldvl/booth.html#" id="example-hide" class="hideLink" onclick="showHide(&#39;example&#39;);return false;">Hide specific components</a></p>
+						</div>		
+					<h3><u>Testing process:</u></h3>
+					<ol><li>To test your circuit give some input(through Digital display or Bit switch or V+ or Ground), if you use the Digital display or Bit switch you can then give different input to you circuit through incrementing/decrementing the Digital display or double clicking the Bit switch, the other two gives constant inputs.</li>
+					<li>to see the output, connect Digital display or Bit display to the output terminals of your circuit.</li>
+</ol>
+					<br><a href="https://cse.iitkgp.ac.in/~chitta/coldvl/booth.html#top" align="right">Go to the Top</a>
+					
+					</div>
+
+					<div id="itembody12" style="display:none">
+						<h2>Frequently Asked Questions:</h2>
+						<!--  <div id="home"><a href="index.html"><img src= "images/home.jpg"></a></div>-->
+						<p><strong>What is virtual lab?</strong></p>
+						<p>The Virtual Laboratory is an interactive environment for creating and conducting simulated experiments: a playground for experimentation. It consists of domain dependent simulation programs, experimental units called objects  that encompass data files, tools that operate on these objects.</p>
+
+						<p><strong>What are the advantages of virtual lab?</strong></p>
+						<p>Virtual Logic Design and Computer Organisation lab enables students to perform FPGA based prototyping of experiments with support of a virtual environment. The primary need
+						for virtualisation here is multifold.</p>
+						<ol><li>Digital Logic and Computer Organisation are core courses in most of the Undergraduate Curricula of the entire Electrical Sciences Discipline ( Computer Science / Engg., Electronics, Electrical ] etc.</li>
+						<li> Many colleges/institutes cannot procure sufficient number of FPGA boards for their students.</li>
+						<li> Even when such FPGA boards are available, making them available round the clock is difficult.</li><li> Expert help is required to effectively use these FPGA  boards and such help can be easily channeled through a virtual environment.</li>
+						<li>Helps to standardize the set of Experiments to a large extent.</li>
+						</ol>
+						<p><strong>What is eclipse platform?</strong></p>
+						<p><a href="http://www.eclipse.org/">Eclipse</a> is a Java-based, extensible open source development platform. By itself, it is simply a framework and a set of services for building a 
+						development environment from plug-in components. Eclipse comes with a standard set of plug-ins, including the Java Development Tools (JDT). </p>
+
+						<p><strong>Which framework is used to develop the application?</strong></p>
+						<p>We have used the eclipse gef framework. <a href="http://www.eclipse.org/gef/overview.html">The Graphical Editing Framework (GEF)</a> allows developers to take an existing application model and quickly create a rich graphical editor.</p>
+
+						<p><strong>What is platform independent application?</strong></p>
+						<p>Applications that run under particular operating systems and/or particular hardwares are called platform dependent application whereas platform independent applications can run in any operating environment.
+						</p>
+
+						<p><strong>What are the experiments which can be performed by the Virtual Logic Design and Computer Organization lab?</strong></p>
+						<p>The experiments that will be supported by this lab are given below:</p>
+						<ol><li> Design of a ripple carry adder</li>
+						<li>Design of a carry-look-ahead adder</li>
+						<li> Design of registers and counters</li>
+						<li> Design of a wallace tree adder</li>
+						<li> Design of combinational multipliers</li>
+						<li> Design of a Booth’s multiplier</li>
+						<li> Design of an ALU</li>
+						<li>Design of memory units</li>
+						<li>Design of direct mapped cache</li>
+						<li> Design of associative cache</li>
+						<li> Design of combinational dividers</li>
+						<li> CPU design</li>
+						</ol>
+					</div>
+			<!--</div>-->
+		</div>
+
+		
+		<div id="faq" class="lhs1">
+			
+			<div class="content">
+				<ul>
+					<li><!--<a href="javascript:loadNewPage(144);"></a>--><a href="https://cse.iitkgp.ac.in/~chitta/coldvl/manual-coa.pdf" target="_blank">Manual for Using Simulator</a></li>
+					
+				</ul>
+			</div>
+
+		</div>
+		
+		<div id="experiments" class="boxed">
+			<h2 class="heading">List of Experiments</h2>
+			<div class="content">
+				<ul>
+					<li class="first"><a href="https://cse.iitkgp.ac.in/~chitta/coldvl/rca_design.html">Ripple Carry Adder</a></li>
+					<li><a href="https://cse.iitkgp.ac.in/~chitta/coldvl/cla_design.html">Carry-Look-Ahead Adder</a></li>
+					<li><a href="https://cse.iitkgp.ac.in/~chitta/coldvl/wta.html">Wallace Tree Adder</a></li>
+					<li><a href="https://cse.iitkgp.ac.in/~chitta/coldvl/ff_Synthesis.html">Synthesis of Flip Flops</a></li>
+					<li><a href="https://cse.iitkgp.ac.in/~chitta/coldvl/reg_cnt_design.html">Registers and Counters</a></li>
+					<li><a href="https://cse.iitkgp.ac.in/~chitta/coldvl/cmult.html">Combinational Multipliers</a></li>
+					<li><a href="https://cse.iitkgp.ac.in/~chitta/coldvl/booth.html">Booth's Multiplier</a></li>
+					<li><a href="https://cse.iitkgp.ac.in/~chitta/coldvl/alu.html">Arithmetic Logic Unit</a></li>
+					<li><a href="https://cse.iitkgp.ac.in/~chitta/coldvl/memory.html">Memory Design</a></li>
+					<li><a href="https://cse.iitkgp.ac.in/~chitta/coldvl/ac.html">Associative cache Design</a></li>
+					<li><a href="https://cse.iitkgp.ac.in/~chitta/coldvl/dmc.html">Direct Mapped cache Design</a></li>
+					<li><a href="https://cse.iitkgp.ac.in/~chitta/coldvl/comp.html">CPU Design</a></li>
+					
+				</ul>
+			</div>
+		</div>
+		<div id="faq" class="lhs">
+			<h2 class="heading">Others</h2>
+			<div class="content">
+				<ul>
+					<li><a href="javascript:loadNewPage(14);">Target Audience</a></li>
+					<li><a href="javascript:loadNewPage(15);">Courses Aligned With</a></li>
+					<li><a href="javascript:loadNewPage(16);">Pre-requisite Softwares</a></li>
+					<li><a href="javascript:loadNewPage(17);">Objectives</a></li>							
+					<li><a href="javascript:loadNewPage(11);">About Us</a></li>
+					<li><a href="javascript:loadNewPage(13);">Contact Us</a></li>
+					<li><a href="javascript:loadNewPage(12);">FAQ</a></li>
+					<li><a href="javascript:loadNewPage(18);">Feedback</a></li>
+				</ul>
+			</div>
+			
+		</div>
+		<!----<div id="search" class="boxed">
+			<h2 class="heading">Search</h2>
+			<div class="content">
+				<FORM method=GET action="http://www.google.com/search">
+					<div>
+					<input type=hidden name=ie value=UTF-8>
+					<input type=hidden name=oe value=UTF-8>
+					<INPUT TYPE=text name=q size="18" value="">
+					</div>		
+				</FORM>
+				<h5>Powered by Google</h5>
+			</div>
+		</div>---->
+	</div>
+	<div id="footer">
+		<p></p><center>Copyright © 2010 COA Virtual Lab. Designed by <a href="http://cse.iitkgp.ac.in/">Dept. of CSE,IIT Kgp</a>
+			<a href="http://virtual-labs.ac.in/nmeict">Sponsered by MHRD (NME-ICT)
+</a><a> | </a><a href="http://virtual-labs.ac.in/licensing" target="_blank">
+Licensing Terms </a><a></a></center><p></p><a>
+	</a></div><a>
+</a></div><a>
+
+
+</a></body></html>
